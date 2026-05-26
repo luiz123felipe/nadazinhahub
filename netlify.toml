@@ -1,5 +1,5 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "frame-src 'self' https://xproger.info https://ripjaw1219.github.io;"
+    Content-Security-Policy = "frame-src 'self' http://xproger.info https://xproger.info;"
     X-Frame-Options = "ALLOWALL"
