@@ -1,0 +1,398 @@
+/*
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0f0f13;
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #4f46e5;
+    text-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #9ca3af;
+    font-size: 1.1rem;
+}
+
+.main-div {
+    margin-left: 20%;
+    margin-right: 20%;
+
+    border-radius: 12px;
+
+    padding: 3%;
+
+    background-color: #07070a;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.game-card {
+    background-color: #1e1e24;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+    border-color: #4f46e5;
+}
+
+.game-thumb {
+    width: 100%;
+    height: 160px;
+    background-color: #2e2e38;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-minecraft { background-image: url("imgs/minecraftimg.jpg"); background-size: cover; }
+.bg-quake { background-image: url("imgs/quake3img.jpg"); background-size: cover; }
+.bg-doom { background-image: url("imgs/doomimg.jpg"); background-size: cover; }
+.bg-tomb { background-image: url("imgs/tombraiderimg.jpg"); background-size: cover; }
+.bg-poki { background-image: url("imgs/pokimg.jpg"); background-size: cover; }
+
+.game-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.game-info h3 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #f3f4f6;
+}
+
+.game-info p {
+    font-size: 0.9rem;
+    color: #9ca3af;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.play-btn {
+    background-color: #4f46e5;
+    color: white;
+    text-align: center;
+    padding: 0.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+}
+
+.game-card:hover .play-btn {
+    background-color: #6366f1;
+}
+
+.btn-poki {
+    background-color: #ff6f00;
+}
+
+.game-card:hover .btn-poki {
+    background-color: #ff8f00;
+}
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Motiva Sans", Arial, Helvetica, sans-serif, 'Segoe UI';
+}
+
+body {
+    background: radial-gradient(circle at top left, #1b2838 0%, #171a21 100%);
+    color: #c7d5e0;
+    min-height: 100vh;
+    padding-bottom: 4rem;
+}
+
+.hub-nav {
+    background-color: #171a21;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 15%;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.nav-links span {
+    color: #b8b6b4;
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-right: 35px;
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    transition: color 0.2s, text-shadow 0.2s;
+    padding: 5px 0;
+}
+
+.nav-links span:hover, .nav-links span.active {
+    color: #ffffff;
+}
+
+.nav-links span.active {
+    border-bottom: 3px solid #1a70cc;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.main-div {
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 4px;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+    min-height: 500px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.game-card {
+    background: linear-gradient(to bottom, #16202d 0%, #0b1119 100%);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.game-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+    border-color: #66c0f4;
+}
+
+.game-thumb {
+    width: 100%;
+    height: 150px;
+    background-color: #202a39;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 2px solid #101822;
+}
+
+.bg-minecraft { background-image: url("imgs/minecraftimg.jpg"); }
+.bg-quake { background-image: url("imgs/quake3img.jpg"); }
+.bg-doom { background-image: url("imgs/doomimg.jpg"); }
+.bg-tomb { background-image: url("imgs/tombraiderimg.jpg"); }
+.bg-poki { background-image: url("imgs/pokimg.jpg"); }
+.bg-roblox { background-image: url("imgs/robloximg.jpg"); }
+.bg-mario64 { background-image: url("imgs/mario64img.jpg"); }
+
+.game-info {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.game-text {
+    text-align: center;
+}
+
+.game-text h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.game-text p {
+    font-size: 0.8rem;
+    color: #acb2b8;
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+}
+
+.hub-action-row {
+    padding: 6px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-btn {
+    background: linear-gradient( to right, #75b022 0%, #588a1b 100% );
+    color: #d2efa9;
+    text-align: center;
+    width: 100%;
+    max-width: 120px;
+    padding: 0.5rem 0;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    transition: background 0.1s;
+}
+
+.game-card:hover .play-btn {
+    background: linear-gradient( to right, #8ed629 0%, #6aa621 100% );
+    color: #ffffff;
+}
+
+.btn-poki {
+    background: linear-gradient(to right, #418fb9 0%, #1a70cc 100%);
+    color: #ffffff;
+}
+
+.game-card:hover .btn-poki {
+    background: linear-gradient(to right, #5cc8ff 0%, #2482f3 100%);
+}
+
+.hub-about-section {
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.hub-about-section h2 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #3d4450;
+    padding-bottom: 0.5rem;
+}
+
+.hub-about-section p {
+    color: #acb2b8;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.hub-features-list {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #2a475e;
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+}
+
+.hub-features-list h3 {
+    color: #66c0f4;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.hub-features-list ul {
+    list-style-type: none;
+}
+
+.hub-features-list li {
+    color: #acb2b8;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.hub-features-list li::before {
+    content: "➔";
+    position: absolute;
+    left: 0;
+    color: #66c0f4;
+}
+
+.hub-footer {
+    margin-top: 3rem;
+    text-align: center;
+    border-top: 1px solid #3d4450;
+    padding-top: 1.5rem;
+}
+
+.hub-footer a {
+    color: #66c0f4;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.hub-footer a:hover {
+    color: #ffffff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+    .main-div, .hub-nav {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}

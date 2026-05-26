@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadazinha Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="hub-nav">
+        <div class="nav-links">
+            <span id="tab-about" class="active" onclick="changeTab('about')">SOBRE</span>
+            <span id="tab-library" onclick="changeTab('library')">BIBLIOTECA</span>
+        </div>
+    </div>
+
+    <header>
+        <h1>NADAZINHA HUB</h1>
+    </header>
+
+    <div class="main-div">
+
+        <section id="about-content" class="hub-about-section">
+            <h2>Sobre o Site</h2>
+            <p>Bem-vindo ao <strong>Nadazinha Hub</strong>!</p>
+            <p>O site foi desenvolvido para ser de fácil acesso e para jogar os jogos sem a necessidade de instalção de arquivos (Que muitas vezes nem da pra instalar)</p>
+            <div class="hub-features-list">
+                <h3>Recursos do Site:</h3>
+                <ul>
+                    <li><strong>Sem Instalação:</strong> Todos os jogos rodam direto no navegador, sem precisar instalar
+                        arquivos.</li>
+                    <li><strong>Save Local:</strong> Nos jogos como o Minecraft, os mundos e progressos ficam salvos
+                        direto no navegador.</li>
+                </ul>
+            </div>
+
+            <footer class="hub-footer">
+                <p>Site desenvolvido por Luiz Felipe - 2º Info</p>
+                <a href="https://instagram.com/lzfelipem" target="_blank">
+                    <img src="imgs/instagramimg.jpg" alt="Instagram"
+                        style="width: 40px; height: 40px; vertical-align: middle;">
+                </a>
+            </footer>
+        </section>
+
+        <main id="library-content" class="games-grid" style="display: none;">
+
+            <a href="./minecraft/menu-minecraft.html" class="game-card">
+                <div class="game-thumb bg-minecraft"></div>
+                <div class="game-info">
+                    <div class="game-text">
+                        <h3>Minecraft 1.8.8</h3>
+                        <p>Minecraft 1.8 - Singleplayer ou Multiplayer</p>
+                    </div>
+                    <div class="hub-action-row">
+                        <div class="play-btn">Jogar</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./quake3/Quake3.htm?demo" class="game-card">
+                <div class="game-thumb bg-quake"></div>
+                <div class="game-info">
+                    <div class="game-text">
+                        <h3>Quake III Arena</h3>
+                        <p>Jogo de tiro em 3d</p>
+                    </div>
+                    <div class="hub-action-row">
+                        <div class="play-btn">Jogar</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./doom/index.html" class="game-card">
+                <div class="game-thumb bg-doom"></div>
+                <div class="game-info">
+                    <div class="game-text">
+                        <h3>DOOM</h3>
+                        <p>O clássico, DOOM</p>
+                    </div>
+                    <div class="hub-action-row">
+                        <div class="play-btn">Jogar</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./tombraider/index.html" class="game-card">
+                <div class="game-thumb bg-tomb"></div>
+                <div class="game-info">
+                    <div class="game-text">
+                        <h3>Tomb Raider I</h3>
+                        <p>Jogão com a Lara Croft quadrada</p>
+                    </div>
+                    <div class="hub-action-row">
+                        <div class="play-btn">Jogar</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="" class="game-card">
+                <div class="game-thumb bg-mario64"></div>
+                <div class="game-info">
+                    <div class="game-text">
+                        <h3>Mario 64 (Não tem ainda)</h3>
+                        <p>Super Mario 64 da Nintendo direto no navegador</p>
+                    </div>
+                    <div class="hub-action-row">
+                        <div class="play-btn">Jogar</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://poki.com" target="_blank" class="game-card">
+                <div class="game-thumb bg-poki"></div>
+                <div class="game-info">
+                    <div class="game-text">
+                        <h3>Jogos Diversos (Poki)</h3>
+                        <p>Site de Jogos Flash</p>
+                    </div>
+                    <div class="hub-action-row">
+                        <div class="play-btn btn-poki">Acessar ↗</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://roblox.com" target="_blank" class="game-card">
+                <div class="game-thumb bg-roblox"></div>
+                <div class="game-info">
+                    <div class="game-text">
+                        <h3>Roblox (Site externo)</h3>
+                        <p>Roblox né, mas precisa instalar o executável do roblox</p>
+                    </div>
+                    <div class="hub-action-row">
+                        <div class="play-btn btn-poki">Acessar ↗</div>
+                    </div>
+                </div>
+            </a>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
