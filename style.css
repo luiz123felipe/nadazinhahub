@@ -243,9 +243,11 @@ header h1 {
 .bg-quake { background-image: url("imgs/quake3img.jpg"); }
 .bg-doom { background-image: url("imgs/doomimg.jpg"); }
 .bg-tomb { background-image: url("imgs/tombraiderimg.jpg"); }
+.bg-mario64 { background-image: url("imgs/mario64img.jpg"); }
+.bg-sonic { background-image: url("imgs/sonicimg.jpg"); }
+.bg-emulador { background-image: url("imgs/emuladorimg.jpg"); }
 .bg-poki { background-image: url("imgs/pokimg.jpg"); }
 .bg-roblox { background-image: url("imgs/robloximg.jpg"); }
-.bg-mario64 { background-image: url("imgs/mario64img.jpg"); }
 
 .game-info {
     padding: 1rem;

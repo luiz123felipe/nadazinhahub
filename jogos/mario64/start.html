@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Mario 64</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Motiva Sans", Arial, Helvetica, sans-serif, 'Segoe UI';
+    }
+
+    body {
+      background-color: #121212;
+      color: #c7d5e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .version-badge {
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 1px solid #e53935;
+      color: #ff8a80;
+      padding: 0.2rem 0.8rem;
+      border-radius: 2px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 2.5rem;
+    }
+
+    .game-container {
+      width: 100%;
+      max-width: 900px;
+      background: linear-gradient(to bottom, #16202d 0%, #0b1119 100%);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .canvas-wrapper {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #000000;
+      border: 2px solid #101822;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated;
+    }
+
+    .start-prompt {
+      color: #66c0f4;
+      font-size: 1.5rem;
+      font-weight: bold;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
+    }
+
+    .instructions {
+      font-size: 0.9rem;
+      color: #acb2b8;
+      line-height: 1.5;
+      text-align: center;
+      max-width: 700px;
+    }
+
+    .back-link {
+      margin-top: 3rem;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: #ffffff;
+    }
+
+    .fullscreen-text-btn {
+      color: #66c0f4;
+      font-weight: bold;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-bottom: 1.5rem;
+      transition: color 0.2s;
+      display: inline-block;
+      user-select: none;
+    }
+
+    .fullscreen-text-btn:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>SUPER MARIO 64</h1>
+  <div class="version-badge">Porte pra JS-WASM</div>
+
+  <div class="game-container">
+
+    <span class="fullscreen-text-btn" id="fsBtn">Tela Cheia</span>
+
+    <div class="canvas-wrapper" id="gameBox">
+      <span class="start-prompt" id="clickText">CLIQUE AQUI PARA INICIAR</span>
+      <canvas class="emscripten" id="canvas" style="display: none;"></canvas>
+    </div>
+
+
+    <div class="instructions">
+      <p>
+        <strong>Movimentação:</strong> Setas do Teclado <br>
+        <strong>Pular / Selecionar:</strong> X <br>
+        <strong>Soco / Pegar:</strong> C <br>
+      </p>
+      <p style="margin-top: 0.5rem; color: #acb2b8;">
+        <strong>Câmera:</strong> W, A, S, D <br>
+        <strong>Agachar / Rastejar:</strong> Espaço <br>
+        <strong>Pause / Start:</strong> Enter
+      </p>
+    </div>
+
+  </div>
+
+  <a href="../../index.html" class="back-link">← Voltar para o Hub</a>
+
+  <script type="text/javascript">
+    var Module = {
+      preRun: [],
+      postRun: [],
+      print: function (text) { console.log(text); },
+      printErr: function (text) { console.error(text); },
+
+      locateFile: function (path) {
+        if (path.endsWith('.wasm')) {
+          return './game/' + path;
+        }
+        return path;
+      },
+
+      canvas: (function () {
+        var canvas = document.getElementById('canvas');
+        return canvas;
+      })(),
+      setStatus: function (text) { }
+    };
+
+    document.getElementById('gameBox').addEventListener('click', function () {
+      var clickText = document.getElementById('clickText');
+      var canvas = document.getElementById('canvas');
+
+      if (clickText) {
+        clickText.style.display = 'none';
+        canvas.style.display = 'block';
+
+        var gameScript = document.createElement('script');
+        gameScript.src = "./game/sm64.js";
+        gameScript.async = true;
+        document.body.appendChild(gameScript);
+      }
+    }, { once: true });
+
+    document.getElementById('fsBtn').addEventListener('click', function() {
+    var gameBox = document.getElementById('gameBox');
+    
+    if (gameBox.requestFullscreen) {
+        gameBox.requestFullscreen();
+    } else if (gameBox.mozRequestFullScreen) {
+        gameBox.mozRequestFullScreen();
+    } else if (gameBox.webkitRequestFullscreen) {
+        gameBox.webkitRequestFullscreen();
+    } else if (gameBox.msRequestFullscreen) {
+        gameBox.msRequestFullscreen();
+    }
+});
+  </script>
+
+</body>
+
+</html>
